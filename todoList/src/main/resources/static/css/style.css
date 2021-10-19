@@ -41,34 +41,40 @@ table {
 
 table td, table th {
 	border: 1px solid grey;
+	text-align: center;
 }
 
 th {
 	background: green;
 	color: white;
 }
-
 th:nth-child(1) {
+	width: 30px;
+}
+th:nth-child(2) {
 	width: 300px;
 }
-
-th:nth-child(2) {
-	width: 50px;
-}
-td:nth-child(1) {
-	text-align: center;
+th:nth-child(3) {
+	width: 70px;
 }
 
-td:nth-child(2) {	
-	text-align: center;
+button {
+	margin: 5px auto;
 }
 
-td input {
+/*td input {
 	width: 93%;
 	text-align: right;
-}
+}*/
 
 table#tasks thead tr th {
 	background: #c0c0c0 !important;
 	color: brack;
+}
+.buttonArea {
+	background: #ffffff;
+	border-right: 0px solid #ffffff;
+	border-left: 0px solid #ffffff;
+	border-bottom: 0px solid #ffffff;
+	text-align: right;
 }

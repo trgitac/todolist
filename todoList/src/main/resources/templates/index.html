@@ -16,34 +16,34 @@
 	<h1>todoList</h1>
 </header> 	
 <div class="create">
+	<form method="POST" action="/">
 	<div>
 		<legend>新規タスク</legend>
 		<p></p>
 		<p><input type="text" name="title" placeholder="内容を入力してください"/></p>
 		<p><button>タスクを追加</button></p>
 	</div>
+	</form>
 </div>	
 	<fieldset>
 		<legend>現在のタスク</legend>
 		<table id="tasks">
 			<thead>
+				<th>#</th>
 				<th>Task</th>
-				<th>&nbsp;</th>
 				<th>&nbsp;</th>
 			</thead>
 			<tbody>
 				<tr>
-					<td>7/20 AM 10:00から会議</td>
+					<td><input type="checkbox" name="id" class="checkList"/></td>
+					<td th:each="todo : ${todos}" th:text="${todo.title}"/>
 					<td><button>更新</button></td>
-					<td><button>削除</button></td>
-				</tr>
-				<tr>
-					<td>7/20 AM12:00から会食</td>
-					<td><button>更新</button></td>
-					<td><button>削除</button></td>
 				</tr>
 			</tbody>
 		</table>
+		<div class="buttonArea">
+			<button id="deleteButton">削除</button>
+		</div>
 	</fieldset>
 </body>
 </html>
