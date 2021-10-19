@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>todoList</title>
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet"
+	  href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script>
+</script>
+</head>
+<body>
+<header>
+	<h1>todoList</h1>
+</header> 	
+<div class="create">
+	<div>
+		<legend>新規タスク</legend>
+		<p></p>
+		<p><input type="text" name="title" placeholder="内容を入力してください"/></p>
+		<p><button>タスクを追加</button></p>
+	</div>
+</div>	
+	<fieldset>
+		<legend>現在のタスク</legend>
+		<table id="tasks">
+			<thead>
+				<th>Task</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>7/20 AM 10:00から会議</td>
+					<td><button>更新</button></td>
+					<td><button>削除</button></td>
+				</tr>
+				<tr>
+					<td>7/20 AM12:00から会食</td>
+					<td><button>更新</button></td>
+					<td><button>削除</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+</body>
+</html>
