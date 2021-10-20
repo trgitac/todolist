@@ -1,6 +1,6 @@
 package jp.co.internous.todolist.model.form;
 
-public class TodoForm {
+public class TaskForm {
 	
 	private String title;
 	

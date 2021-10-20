@@ -7,26 +7,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jp.co.internous.todolist.model.domain.Todo;
-import jp.co.internous.todolist.model.mapper.TodoMapper;
+import jp.co.internous.todolist.model.domain.Tasks;
+import jp.co.internous.todolist.model.mapper.TasksMapper;
 
 @Controller
 @RequestMapping("/todolist")
 public class IndexController {
 	
 	@Autowired
-	TodoMapper todoMapper;
+	TasksMapper tasksMapper;
 
 	@RequestMapping("/")
 	public String index(Model model) {
-		List<Todo> list = todoMapper.selectAll();
-		model.addAttribute("todos",list);
+		List<Tasks> list = tasksMapper.selectAll();
+		model.addAttribute("tasks",list);
 		return "index";
 	}
 	
 	@RequestMapping("/add")
-	public String add(Todo todo) {
-		todoMapper.add(todo);
+	public String add(Tasks todo) {
+		tasksMapper.add(todo);
 		return "index";
 	}
 }

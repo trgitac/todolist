@@ -19,7 +19,7 @@
 <body>
 <header>
 	<h1>todoList</h1>
-</header> 	
+</header>
 <div class="create">
 	<form method="POST" action="/todolist/add" th:action="@{/todolist/add}">
 	<div>
@@ -39,9 +39,9 @@
 				<th>&nbsp;</th>
 			</thead>
 			<tbody>
-			<tr>
+			<tr th:each="task : ${tasks}">
 				<td><input type="checkbox" name="id" class="checkList"/></td>
-				<td th:each="todo : ${todos}" th:text="${todo.title}"/></td>
+				<td th:text="${task.title}"/></td>
 				</td><td><button>更新</button></td></tr>
 				</tr>
 			</tbody>
