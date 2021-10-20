@@ -24,4 +24,9 @@ public class IndexController {
 		return "index";
 	}
 	
+	@RequestMapping("/add")
+	public String add(Todo todo) {
+		todoMapper.add(todo);
+		return "index";
+	}
 }

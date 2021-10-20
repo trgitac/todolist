@@ -5,4 +5,8 @@
 	<select id="selectAll" resultType="jp.co.internous.todolist.model.domain.Todo">
 		select * from tasks
 	</select>
+	
+	<insert id="add" parameterType="jp.co.internous.todolist.model.domain.Todo">
+		insert into tasks (title) values (#{title})
+		</insert>
 </mapper>

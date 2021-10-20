@@ -9,6 +9,11 @@
 <link rel="stylesheet"
 	  href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script>
+	$(() => {
+		$('#addBtn').on('click',add);
+	});
+	
+	
 </script>
 </head>
 <body>
@@ -16,12 +21,12 @@
 	<h1>todoList</h1>
 </header> 	
 <div class="create">
-	<form method="POST" action="/">
+	<form method="POST" action="/todolist/add" th:action="@{/todolist/add}">
 	<div>
 		<legend>新規タスク</legend>
 		<p></p>
 		<p><input type="text" name="title" placeholder="内容を入力してください"/></p>
-		<p><button>タスクを追加</button></p>
+		<p><input type="submit" id="addBtn" value="タスクを追加"></p>
 	</div>
 	</form>
 </div>	
@@ -34,10 +39,10 @@
 				<th>&nbsp;</th>
 			</thead>
 			<tbody>
-				<tr>
-					<td><input type="checkbox" name="id" class="checkList"/></td>
-					<td th:each="todo : ${todos}" th:text="${todo.title}"/>
-					<td><button>更新</button></td>
+			<tr>
+				<td><input type="checkbox" name="id" class="checkList"/></td>
+				<td th:each="todo : ${todos}" th:text="${todo.title}"/></td>
+				</td><td><button>更新</button></td></tr>
 				</tr>
 			</tbody>
 		</table>

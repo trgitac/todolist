@@ -11,4 +11,6 @@ import jp.co.internous.todolist.model.domain.Todo;
 public interface TodoMapper {
 	
 	public List<Todo> selectAll();
+	
+	public void add(Todo todo);
 }
