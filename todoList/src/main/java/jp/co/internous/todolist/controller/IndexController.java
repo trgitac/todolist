@@ -11,7 +11,7 @@ import jp.co.internous.todolist.model.domain.Tasks;
 import jp.co.internous.todolist.model.mapper.TasksMapper;
 
 @Controller
-@RequestMapping("/todolist")
+@RequestMapping("/task")
 public class IndexController {
 	
 	@Autowired
