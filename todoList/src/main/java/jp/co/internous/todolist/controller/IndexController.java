@@ -27,6 +27,6 @@ public class IndexController {
 	@RequestMapping("/add")
 	public String add(Tasks todo) {
 		tasksMapper.add(todo);
-		return "index";
+		return "redirect:/task/";
 	}
 }

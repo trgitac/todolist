@@ -70,7 +70,7 @@ table#tasks thead tr th {
 	border-right: 0px solid #ffffff;
 	border-left: 0px solid #ffffff;
 	border-bottom: 0px solid #ffffff;
-	text-align: right;
+	text-align: left;
 }
 
 .hidden {

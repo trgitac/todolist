@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybaits.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="jp.co.internous.todolist.model.mapper.TasksMapper">
-	<select id="selectAll" resultType="jp.co.internous.todolist.model.domain.Todo">
+	<select id="selectAll" resultType="jp.co.internous.todolist.model.domain.Tasks">
 		select * from tasks
 	</select>
 	
-	<insert id="add" parameterType="jp.co.internous.todolist.model.domain.Todo">
+	<insert id="add" parameterType="jp.co.internous.todolist.model.domain.Tasks">
 		insert into tasks (title) values (#{title})
 		</insert>
 </mapper>
