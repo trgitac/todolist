@@ -8,5 +8,9 @@
 	
 	<insert id="add" parameterType="jp.co.internous.todolist.model.domain.Tasks">
 		insert into tasks (title) values (#{title})
-		</insert>
+	</insert>
+	
+	<delete id="delete" parameterType="jp.co.internous.todolist.model.domain.Tasks">
+		delete from tasks where user_id in ""
+	</delete>
 </mapper>

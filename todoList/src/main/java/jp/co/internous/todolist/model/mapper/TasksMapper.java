@@ -12,5 +12,7 @@ public interface TasksMapper {
 	
 	public List<Tasks> selectAll();
 	
-	public void add(Tasks todo);
+	public void add(Tasks form);
+
+	public void delete(); //Listの引数の受け渡しがわかりません。
 }
