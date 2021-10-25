@@ -14,5 +14,5 @@ public interface TasksMapper {
 	
 	public void add(Tasks form);
 
-	public void delete(); //Listの引数の受け渡しがわかりません。
+	public void delete(List<String> checkIds); //Listの引数の受け渡しがわかりません。
 }

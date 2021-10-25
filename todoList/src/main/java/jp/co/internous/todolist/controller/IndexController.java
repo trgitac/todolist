@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.google.gson.Gson;
 
 import jp.co.internous.todolist.model.domain.Tasks;
+import jp.co.internous.todolist.model.form.TaskForm;
 import jp.co.internous.todolist.model.mapper.TasksMapper;
 
 @Controller
@@ -31,15 +32,20 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/add")
-	public String add(Tasks form) {
-		tasksMapper.add(form);
+	public String add(TaskForm form) {
+		Tasks tasks = new Tasks();
+		tasks.setTitle(form.getTitle());
+		tasksMapper.add(tasks);
 		return "redirect:/task/";
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/delete")
 	public String delete(@RequestBody String checkList) {
+		
 		Map<String,List<String>> map = gson.fromJson(checkList,Map.class);
 		List<String> checkIds = map.get("checkList"); 
+		tasksMapper.delete(checkIds);
 		return "redirect:/task/";
 	}
 }
