@@ -3,6 +3,7 @@ package jp.co.internous.todolist.model.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import jp.co.internous.todolist.model.domain.Tasks;
 
@@ -14,5 +15,5 @@ public interface TasksMapper {
 	
 	public void add(Tasks form);
 
-	public void delete(List<String> checkIds); //Listの引数の受け渡しがわかりません。
+	public int delete(@Param("checkedIds") List<String> checkedIds);
 }

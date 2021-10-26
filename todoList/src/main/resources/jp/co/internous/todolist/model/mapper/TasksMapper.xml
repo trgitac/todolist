@@ -11,7 +11,7 @@
 	</insert>
 	
 	<delete id="delete">
-		delete from tasks where user_id in 
+		delete from tasks where id in 
 		<foreach item="checkedId" index="index" collection="checkedIds" open="(" separator="," close=")">
 			#{checkedId}
 		</foreach>

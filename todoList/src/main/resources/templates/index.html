@@ -9,6 +9,32 @@
 <link rel="stylesheet"
 	  href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script>
+$(() => {
+	$('#deleteButton').on('click', (event) => {
+		let checkedList = $('.checkList:checked');
+		let checkedIdList =[];
+		for(checked of checkedList) {
+			checkedIdList.push($(checked).val());
+		}
+		$.ajax({
+			type: 'POST',
+			url: '/task/delete',
+			data: JSON.stringify({'checkedIdList': checkedIdList}),
+			contentType: 'application/json',
+		})
+		.then((result) => {
+			if(result) {
+				for(checked of checkedList) {
+					$(checked).parent().parent().remove();
+				}
+			} else {
+				alert('Error: deletion failed.');
+			}
+		}, () => {
+			alert('Error: ajax connection failed.');
+		});
+	});
+});
 </script>
 </head>
 <body>
@@ -30,13 +56,11 @@
 			<thead>
 				<th>#</th>
 				<th>Task</th>
-				<th>&nbsp;</th>
 			</thead>
 			<tbody>
 				<tr th:each="task : ${tasks}">
 					<td><input type="checkbox" name="id" class="checkList" th:value="${task.id}"/></td>
 					<td th:text="${task.title}"/></td>
-					<td><button>更新</button></td>
 				</tr>
 			</tbody>
 		</table>

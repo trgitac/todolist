@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
@@ -41,11 +42,16 @@ public class IndexController {
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/delete")
-	public String delete(@RequestBody String checkList) {
+	@ResponseBody
+	public boolean delete(@RequestBody String checkedIdList) {
 		
-		Map<String,List<String>> map = gson.fromJson(checkList,Map.class);
-		List<String> checkIds = map.get("checkList"); 
-		tasksMapper.delete(checkIds);
-		return "redirect:/task/";
+		Map<String,List<String>> map = gson.fromJson(checkedIdList,Map.class);
+		List<String> checkedIds = map.get("checkedIdList"); 
+		System.out.println(checkedIds.size());
+		int count = 0;
+		if(checkedIds.size() > 0) {
+			count = tasksMapper.delete(checkedIds);
+		}
+		return count > 0; 
 	}
 }
